@@ -85,8 +85,8 @@ export default class Model {
         dimentionLong,
         capacity
     ) {
-        /* const update = {
-            id: id,
+        const update = {
+            id: Number(id),
             type: type,
             model: model,
             quantity: quantity,
@@ -96,33 +96,24 @@ export default class Model {
             dimentionWide: dimentionWide,
             dimentionLong: dimentionLong,
             capacity
-        } */
+        }
 
-        const index = this.findEvery(id);
-        var realIndex = (index + 1);
-        
-        /* console.log('Index: ' + index);
-        console.log('Real Index: ' + realIndex);
-        console.log('ALL: ', this.all);
-        console.log('ALL with specific index: ', this.all[realIndex]); */
+        var existing = localStorage.getItem('all');
+        console.log('Exist: ', existing);
 
-        /* this.all[realIndex].id = id; */
-        this.all[realIndex].type = type;
-        this.all[realIndex].model = model;
-        this.all[realIndex].quantity = quantity;
-        this.all[realIndex].price = price;
-        this.all[realIndex].color = color;
-        this.all[realIndex].dimentionHigh = dimentionHigh;
-        this.all[realIndex].dimentionWide = dimentionWide;
-        this.all[realIndex].dimentionLong = dimentionLong;
-        this.all[realIndex].capacity = capacity;
-        
-        console.log('ALL with specific index and mods: ', this.all[realIndex]);
-        console.log('ALL: ', this.all);
+        var item = JSON.parse(localStorage.getItem('all'));
+        // console.log('Test: ', item);
+
+        const indexfind = this.findEvery(Number(id));
+        this.all.splice(indexfind, 1);
+
+        this.all.push(update);
+
+        console.log('TODO UPDATE', this.all);
 
         this.save();
 
-        // setTimeout("location.reload(true);", 500);
+        setTimeout("location.reload(true);", 500);
     }
 
     removeEvery(id) {

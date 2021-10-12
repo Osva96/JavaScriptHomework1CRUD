@@ -1,0 +1,47 @@
+// Estilos existentes en Bootstrap
+$primary: #1c6097;
+$secondary: #6b492d;
+$dropdown-link-color: #000000;
+$enable-shadows: false;
+$enable-gradients: true;
+$btn-border-radius: 1rem;
+$navbar-light-color: #1100ff;
+$accordion-button-bg: #0000000f;
+
+@import "../libs/bootstrap/scss/bootstrap.scss";
+
+// Estilo personalizado propio en elementos de Bootstrap
+.btn-primary {
+    border-bottom: 3px solid rgba(0, 0, 0, 0.27);
+}
+
+.containerPersonalized {
+    min-height: calc(100vh - 118px);
+}
+
+.containerAdminAbout {
+    min-height: calc(100vh - 61px);
+}
+
+.containerAdminAddCup {
+    min-height: calc(100vh - 119px);
+}
+
+.centerFooter {
+    background-color: #ebebeb;
+}
+
+.centerForm {
+
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translateY(-50%, -50%);
+    transform: translate(-50%, -50%);
+    min-width: 80%;
+}
+
+.navbarIcons {
+    color: #b65353;
+}
